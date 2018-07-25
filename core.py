@@ -1,4 +1,4 @@
-class Movie:
+class Cabin:
     def __init__(self, name, stock, rent, replacement):
 
         self.name = name
@@ -15,11 +15,11 @@ class Movie:
 
     def __str__(self):
 
-        return '{}: ${} per day ({} in stock)'.format(self.name, self.rent,
-                                                      self.stock)
+        return '{}: ${} per day ({} available)'.format(self.name, self.rent,
+                                                       self.stock)
 
 
-class Book:
+class Appartment:
     def __init__(self, name, stock, rent, replacement):
 
         self.name = name
@@ -36,8 +36,8 @@ class Book:
 
     def __str__(self):
 
-        return '{}: ${} per day ({} in stock)'.format(self.name, self.rent,
-                                                      self.stock)
+        return '{}: ${} per month ({} available)'.format(
+            self.name, self.rent, self.stock)
 
 
 class Inventory:
@@ -58,7 +58,7 @@ class Inventory:
 
     def __str__(self):
 
-        return 'Movies:\n{}\nBooks:\n{}'.format(
+        return 'Cabins:\n{}\nApartments:\n{}'.format(
             '\n'.join(map(str, self.movies)), '\n'.join(map(str, self.books)))
 
 
@@ -68,22 +68,23 @@ class Rental:
         self.name = name
         self.items = items
 
+    def add_item(self, item):
+
+        self.items.append(item)
+
     def total(self):
 
         for i in self.items:
 
-            return i.rent + self.replacement()
+            price = (i.rent + self.replacement()) * .07
+
+            return price + (i.rent + self.replacement())
 
     def replacement(self):
-        replacement = []
+
         for i in self.items:
-            replacement.append(i)
-            return replacement
+
             return round(i.replacement * .10, 2)
-
-    def add_item(self, item):
-
-        self.items.append(item)
 
     def __str__(self):
         return 'Customer: {}\nReplacement: {}\nTotal: ${:.2f}\nItems:\n{}\n----------------'.format(

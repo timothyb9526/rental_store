@@ -9,6 +9,7 @@ def get_inventory():
 
 def give_inventory(text):
     with open('inventory.txt', 'w') as file:
+
         file.write(text)
 
 
@@ -17,3 +18,12 @@ def write_to_log(item, rent):
     text = '\n{}, {}, {}'.format(time, item, rent)
     with open('history.txt', 'a') as file:
         file.write(text)
+
+
+def employee():
+    with open('history.txt') as file:
+        files = file.read()
+
+    print(files)
+
+    exit()

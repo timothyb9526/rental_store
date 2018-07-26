@@ -9,13 +9,16 @@ def user(inv, file, name, customer_employee):
     while True:
         if customer_employee == 'Customer':
             print(inv)
+            print()
 
             rental = input('Which would you like to rent today? ')
+            print()
 
             item = inv.get_item(rental)
             rentals = rent.add_item(item)
 
             options = input('Would you like to checkout or continue? ')
+            print()
 
             if options == 'checkout':
 
@@ -36,24 +39,21 @@ def user(inv, file, name, customer_employee):
 
 
 def main():
+    inv = load_inventory()
 
-    inv = Inventory([
-        Cabin('small cabin', 5, 60, 90),
-        Cabin('medium cabin', 6, 150, 200),
-        Cabin('large cabin', 3, 300, 400)
-    ], [
-        Appartment('studio appartment', 4, 150, 200),
-        Appartment('medium appartment', 3, 200, 300),
-        Appartment('penthouse', 1, 300, 400)
-    ])
+    give_inventory()
 
     file = get_inventory()
 
     print('Welcome to my rental agency press "q" to quit at any time.')
+    print()
     customer_employee = input('Are you a customer or an employee? ')
+    print()
     name = input('What name would be on this rental? ')
 
     user(inv, file, name, customer_employee)
+
+    write_to_log()
 
 
 if __name__ == '__main__':

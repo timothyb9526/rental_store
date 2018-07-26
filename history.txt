@@ -1,0 +1,15 @@
+
+2018-07-26 09:47:28.758691, <function Inventory.get_item at 0x7fc971363f28>
+2018-07-26 09:48:48.367899, <function Inventory.get_item at 0x7efc24bfaf28>
+2018-07-26 09:57:45.682343, <function Inventory.get_item at 0x7f6a07f6aea0>
+2018-07-26 09:58:26.130276, <function Inventory.get_item at 0x7f7eeeebfea0>
+2018-07-26 10:11:13.875040, <class 'core.Inventory'>
+2018-07-26 10:24:29.160171, <class 'core.Inventory'>
+2018-07-26 10:27:45.309513, <function Property.__str__ at 0x7eff672f2ae8>
+2018-07-26 10:41:09.242635, <function Property.rent at 0x7ffa588339d8>
+2018-07-26 10:42:05.278996, <function Property.rent at 0x7f97c96d29d8>
+2018-07-26 10:45:38.351789, <function Property.rent at 0x7f5ea12dd9d8>
+
+2018-07-26 11:17:06.631784, <function Rental.rental_history at 0x7f79fb3210d0>
+2018-07-26 11:17:44.724519, <function Rental.rental_history at 0x7f99c49270d0>
+2018-07-26 11:18:36.185403, <function Rental.rental_history at 0x7f6dfeb890d0>

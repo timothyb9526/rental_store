@@ -25,23 +25,23 @@ def user(inv, file, name, customer_employee):
                 for line in file:
 
                     if rental.lower() in line.lower():
-                        print('-----------------')
+
                         print(rent)
+
                 break
             elif options == 'continue':
                 continue
             elif options == 'q':
                 break
 
-        elif customer_employee == 'Employee':
+        elif customer_employee == 'Employee'.lower():
             employee()
         break
+    return rent
 
 
 def main():
     inv = load_inventory()
-
-    give_inventory()
 
     file = get_inventory()
 
@@ -51,9 +51,11 @@ def main():
     print()
     name = input('What name would be on this rental? ')
 
-    user(inv, file, name, customer_employee)
+    rent = user(inv, file, name, customer_employee)
 
-    write_to_log()
+    write_to_log(rent)
+    inventory = inv.update_stock()
+    give_inventory(inventory)
 
 
 if __name__ == '__main__':

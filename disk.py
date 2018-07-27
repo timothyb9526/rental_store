@@ -20,15 +20,14 @@ def get_inventory():
         return contents
 
 
-def give_inventory():
-    with open('inventory.txt', 'a') as file:
+def give_inventory(inventory):
+    with open('inventory.txt', 'w') as file:
+        file.write(inventory)
 
-        file.write('a')
 
-
-def write_to_log():
+def write_to_log(rent):
     time = datetime.now()
-    text = '\n{}, {}'.format(time, Rental.rental_history)
+    text = '\n{},\n{}'.format(time, rent.__str__())
     with open('history.txt', 'a') as file:
         file.write(text)
 

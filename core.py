@@ -13,10 +13,13 @@ class Property:
 
         return self.name.lower().startswith(name.lower())
 
+    def history_string(self):
+        return '{}, {}, {}, {}'.format(self.name, self.stock, self.rent,
+                                       self.replacement)
+
     def __str__(self):
 
-        return '{}: ${} per month ({} available)'.format(
-            self.name, self.rent, self.stock)
+        return '{}: ${} per month'.format(self.name, self.rent)
 
 
 class Inventory:
@@ -34,6 +37,14 @@ class Inventory:
             if item.matches_name(name):
                 item.stock -= 1
                 return item
+
+    def update_stock(self):
+
+        inventory = ''
+        for property in self.properties:
+            inventory += '\n{}'.format(property.history_string())
+
+        return inventory
 
     def __str__(self):
 
@@ -65,14 +76,9 @@ class Rental:
             return round(i.replacement * .10, 2)
 
     def __str__(self):
-        return 'Customer: {}\nReplacement: {}\nTotal: ${:.2f}\nProperty:\n{}\n----------------'.format(
+        return '-----------------\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f}\nProperty: {}\n----------------'.format(
             self.name, self.replacement(), self.total(),
             ''.join('\n' + str(i) for i in self.items))
-
-    def rental_history(self):
-
-        return '{}, {}'.format(
-            str(self.name), ''.join('\n' + str(i) for i in self.items))
 
     def __repr__(self):
         return 'Rental({},{})'.format(repr(self.name), repr(self.items))

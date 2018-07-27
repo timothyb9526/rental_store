@@ -1,7 +1,7 @@
+
 small cabin, 5, 60, 90
 medium cabin, 6, 150, 200
 large cabin, 3, 300, 400
 studio apartment, 4, 150, 200
 medium apartment, 3, 200, 300
-penthouse, 1, 300, 400
-aaaaaaaaaaaaaaaa
+penthouse, 0, 300, 400

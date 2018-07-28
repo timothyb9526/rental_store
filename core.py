@@ -52,10 +52,11 @@ class Inventory:
 
 
 class Rental:
-    def __init__(self, name, items):
+    def __init__(self, name, items, length):
 
         self.name = name
         self.items = items
+        self.length = length
 
     def add_item(self, item):
 
@@ -67,7 +68,7 @@ class Rental:
 
             price = (i.rent + self.replacement()) * 1.07
 
-            return price
+            return price * int(self.length)
 
     def replacement(self):
 
@@ -76,9 +77,9 @@ class Rental:
             return round(i.replacement * .10, 2)
 
     def __str__(self):
-        return '-----------------\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f}\nProperty: {}\n----------------'.format(
-            self.name, self.replacement(), self.total(),
+        return '-----------------\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n----------------'.format(
+            self.name, self.replacement(), self.total(), self.length,
             ''.join('\n' + str(i) for i in self.items))
 
     def __repr__(self):
-        return 'Rental({},{})'.format(repr(self.name), repr(self.items))
+        return 'Rental({},{},{})'.format(repr(self.name), repr(self.items))

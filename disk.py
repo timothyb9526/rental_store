@@ -5,12 +5,12 @@ from core import *
 def load_inventory():
 
     return Inventory([
-        Property('small cabin', 5, 60, 90),
+        Property('small cabin', 5, 100, 150),
         Property('medium cabin', 6, 150, 200),
         Property('large cabin', 3, 300, 400),
         Property('studio apartment', 4, 150, 200),
         Property('medium apartment', 3, 200, 300),
-        Property('penthouse', 1, 300, 400)
+        Property('penthouse', 1, 400, 800)
     ])
 
 

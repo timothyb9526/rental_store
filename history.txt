@@ -643,3 +643,167 @@ Total: $363.80
 Property: 
 penthouse: $300 per month
 ----------------
+2018-07-27 10:49:44.898270,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 10:50:11.671729,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 10:51:54.067523,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 10:54:06.933353,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 10:54:34.531584,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 10:55:11.926122,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 10:55:29.194079,
+-----------------
+Customer: timohy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 10:55:57.500405,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 11:00:55.525780,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 11:01:10.232051,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 11:07:09.832342,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 12:27:06.798176,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-27 12:28:55.848030,
+-----------------
+Customer: rimorhy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-28 11:27:08.978171,
+-----------------
+Customer: timothy
+Deposit: 40.0
+Total: $363.80
+Property: 
+penthouse: $300 per month
+----------------
+2018-07-28 11:27:24.416787,
+-----------------
+Customer: timothy
+Deposit: 80.0
+Total: $513.60
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-28 11:43:28.293913,
+-----------------
+Customer: timothy
+Deposit: 80.0
+Total: $513.60 for 2 months
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-28 11:45:22.747534,
+-----------------
+Customer: timothy
+Deposit: 80.0
+Total: $513.60 for 2 months
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-28 11:49:05.851915,
+-----------------
+Customer: timothy
+Deposit: 80.0
+Total: $513.60 for 2 months
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-28 11:49:47.242043,
+-----------------
+Customer: timothy
+Deposit: 80.0
+Total: $513.60 for 2 months
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-28 11:56:57.348303,
+-----------------
+Customer: timohty
+Deposit: 80.0
+Total: $1027.20 for 2 months
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-28 12:00:05.895767,
+None
+2018-07-28 12:00:11.179074,
+None

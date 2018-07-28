@@ -2,42 +2,36 @@ from core import *
 from disk import *
 
 
-def user(inv, file, name, customer_employee):
-
-    rent = Rental(name, [])
+def user(inv, file, customer_employee):
 
     while True:
         if customer_employee == 'Customer':
             print(inv)
             print()
+            name = input('What name would be on this rental? ')
 
+            print()
             rental = input('Which would you like to rent today? ')
             print()
 
-            item = inv.get_item(rental)
-            rentals = rent.add_item(item)
-
-            options = input('Would you like to checkout or continue? ')
+            rental_length = input('How long would you like to start renting? ')
             print()
 
-            if options == 'checkout':
+            rent = Rental(name, [], rental_length)
+            item = inv.get_item(rental)
+            rentals = rent.add_item(item)
+            print('Thanks for your business.')
+            print()
 
-                for line in file:
+            for line in file:
 
-                    if rental.lower() in line.lower():
+                if rental.lower() in line.lower():
 
-                        print(rent)
-
-                break
-            elif options == 'continue':
-                continue
-            elif options == 'q':
-                break
+                    print(rent)
 
         elif customer_employee == 'Employee'.lower():
             employee()
         break
-    return rent
 
 
 def main():
@@ -49,9 +43,8 @@ def main():
     print()
     customer_employee = input('Are you a customer or an employee? ')
     print()
-    name = input('What name would be on this rental? ')
 
-    rent = user(inv, file, name, customer_employee)
+    rent = user(inv, file, customer_employee)
 
     write_to_log(rent)
     inventory = inv.update_stock()

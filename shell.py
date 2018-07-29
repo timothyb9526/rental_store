@@ -8,10 +8,9 @@ def user(inv, file, customer_employee):
         if customer_employee == 'Customer':
             print(inv)
             print()
-            name = input('What name would be on this rental? ')
-
-            print()
             rental = input('Which would you like to rent today? ')
+            print()
+            name = input('What name would be on this rental? ')
             print()
 
             rental_length = input('How long would you like to start renting? ')
@@ -30,7 +29,19 @@ def user(inv, file, customer_employee):
                     print(rent)
 
         elif customer_employee == 'Employee'.lower():
-            employee()
+
+            history = input(
+                'Would you like to see the transaction history or the inventory? '
+            )
+            print()
+
+            if history == 'history':
+
+                employee()
+
+            elif history == 'inventory':
+
+                print(file)
         break
 
 

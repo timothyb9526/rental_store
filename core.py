@@ -66,9 +66,9 @@ class Rental:
 
         for i in self.items:
 
-            price = (i.rent + self.replacement()) * 1.07
+            price = i.rent * 1.07
 
-            return price * int(self.length)
+            return (price * int(self.length)) + self.replacement()
 
     def replacement(self):
 

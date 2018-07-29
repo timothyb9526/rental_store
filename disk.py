@@ -22,7 +22,7 @@ def get_inventory():
 
 def give_inventory(inventory):
     with open('inventory.txt', 'w') as file:
-        file.write(inventory)
+        files = file.write(inventory)
 
 
 def write_to_log(rent):

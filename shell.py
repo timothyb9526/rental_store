@@ -4,31 +4,60 @@ from disk import *
 
 def user(inv, file, customer_employee):
 
-    while True:
-        if customer_employee == 'Customer':
-            print(inv)
+    while input != 'q':
+        if customer_employee == 'customer':
+
+            rent_or_return = input(
+                'Would you like to rent or close a current rental? ')
             print()
-            rental = input('Which would you like to rent today? ')
-            print()
-            name = input('What name would be on this rental? ')
-            print()
+            if rent_or_return == 'rent':
+                print(inv)
+                print()
 
-            rental_length = input('How long would you like to start renting? ')
-            print()
+                rental = input('Which would you like to rent today? ')
+                print()
+                name = input('What name would be on this rental? ')
+                print()
 
-            rent = Rental(name, [], rental_length)
-            item = inv.get_item(rental)
-            rentals = rent.add_item(item)
-            print('Thanks for your business.')
-            print()
+                rental_length = input('How long will you be renting? ')
+                print()
 
-            for line in file:
+                rent = Rental(name, [], rental_length, rent_or_return)
+                item = inv.get_item(rental)
+                rentals = rent.add_item(item)
+                print('Thanks for your business.')
+                print()
 
-                if rental.lower() in line.lower():
+                for line in file:
 
-                    print(rent)
+                    if rental.lower() in line.lower():
 
-        elif customer_employee == 'Employee'.lower():
+                        print(rent)
+                        return rent
+            elif rent_or_return == 'close':
+
+                return_item = input('What would you like to return? ')
+                print()
+                customer = input('What was the name? ')
+                print()
+
+                length = input('How long was the rental for? ')
+                print()
+
+                print('Thank you for your business.')
+                print()
+
+                return_list = Rental(customer, [], length, rent_or_return)
+                item = inv.give_item(return_item)
+                rentals = return_list.add_item(item)
+
+                for line in file:
+                    if return_item.lower() in line.lower():
+
+                        print(return_list.return_string())
+                        return return_list.return_string()
+
+        elif customer_employee == 'employee':
 
             history = input(
                 'Would you like to see the transaction history or the inventory? '

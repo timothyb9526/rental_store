@@ -32,6 +32,12 @@ class Inventory:
         item = self.get_item(name)
         return not (item is None)
 
+    def give_item(self, name):
+        for item in self.properties:
+            if item.matches_name(name):
+                item.stock += 1
+                return item
+
     def get_item(self, name):
         for item in self.properties:
             if item.matches_name(name):
@@ -52,15 +58,31 @@ class Inventory:
 
 
 class Rental:
-    def __init__(self, name, items, length):
+    def __init__(self, name, items, length, type):
 
         self.name = name
         self.items = items
         self.length = length
+        self.type = type
 
     def add_item(self, item):
 
         self.items.append(item)
+
+    def total_minus_deposit(self):
+
+        for i in self.items:
+
+            price = i.rent * 1.07
+
+            return (price * int(self.length))
+
+    def return_string(self):
+
+        return '-----------------\nType: {}\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n----------------'.format(
+            self.type, self.name, self.replacement(),
+            self.total_minus_deposit(), self.length, ''.join(
+                '\n' + str(i) for i in self.items))
 
     def total(self):
 
@@ -77,9 +99,10 @@ class Rental:
             return round(i.replacement * .10, 2)
 
     def __str__(self):
-        return '-----------------\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n----------------'.format(
-            self.name, self.replacement(), self.total(), self.length,
-            ''.join('\n' + str(i) for i in self.items))
+
+        return '-----------------\nType: {}\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n----------------'.format(
+            self.type, self.name, self.replacement(), self.total(),
+            self.length, ''.join('\n' + str(i) for i in self.items))
 
     def __repr__(self):
         return 'Rental({},{},{})'.format(repr(self.name), repr(self.items))

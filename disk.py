@@ -10,7 +10,7 @@ def load_inventory():
         Property('large cabin', 3, 300, 400),
         Property('studio apartment', 4, 150, 200),
         Property('medium apartment', 3, 200, 300),
-        Property('penthouse', 1, 400, 800)
+        Property('penthouse', 0, 400, 800)
     ])
 
 

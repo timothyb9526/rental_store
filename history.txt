@@ -35,3 +35,12 @@ Total: $856.00 for 2 months
 Property: 
 penthouse: $400 per month
 ----------------
+2018-07-30 15:37:32.281680,
+-----------------
+Type: rent
+Customer: timothy
+Deposit: 15.0
+Total: $336.00 for 3 months
+Property: 
+small cabin: $100 per month
+----------------

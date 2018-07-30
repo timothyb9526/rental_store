@@ -44,3 +44,38 @@ Total: $336.00 for 3 months
 Property: 
 small cabin: $100 per month
 ----------------
+2018-07-30 16:10:35.914580,
+-----------------
+Type: rent
+Customer: timothy
+Deposit: 80.0
+Total: $1792.00 for 4 months
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-30 16:11:08.995656,
+-----------------
+Type: close
+Customer: timothy
+Deposit: 80.0
+Total: $1712.00 for 4 months
+Property: 
+penthouse: $400 per month
+----------------
+2018-07-30 16:11:48.555130,
+None
+2018-07-30 16:11:56.246386,
+None
+2018-07-30 16:12:06.453730,
+None
+2018-07-30 16:16:50.210550,
+None
+2018-07-30 16:18:48.513624,
+-----------------
+Type: rent
+Customer: timothy
+Deposit: 15.0
+Total: $336.00 for 3 months
+Property: 
+small cabin: $100 per month
+----------------

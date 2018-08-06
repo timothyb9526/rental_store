@@ -2,22 +2,23 @@ from datetime import datetime
 from core import *
 
 
-def load_inventory():
+def load_inventory(contents, string):
 
-    return Inventory([
-        Property('small cabin', 5, 100, 150),
-        Property('medium cabin', 6, 150, 200),
-        Property('large cabin', 3, 300, 400),
-        Property('studio apartment', 4, 150, 200),
-        Property('medium apartment', 3, 200, 300),
-        Property('penthouse', 1, 400, 800)
-    ])
+    name, stock, rent, replacement = string.split(',')
+    return Property(name, int(stock), int(rent), int(replacement))
 
 
 def get_inventory():
     with open('inventory.txt') as file:
-        contents = file.readlines()
-        return contents
+        contents = file.readline().split(',')
+        lines = file.readlines()
+    properties = []
+    for l in lines:
+
+        p = load_inventory(contents, l)
+        properties.append(p)
+
+    return Inventory(properties)
 
 
 def give_inventory(inventory):

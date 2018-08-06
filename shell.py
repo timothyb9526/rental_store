@@ -2,7 +2,7 @@ from core import *
 from disk import *
 
 
-def user(inv, file, customer_employee):
+def user(file, customer_employee):
 
     while input != 'q':
         if customer_employee == 'customer':
@@ -11,10 +11,11 @@ def user(inv, file, customer_employee):
                 'Would you like to rent or close a current rental? ')
             print()
             if rent_or_return == 'rent':
-                print(inv)
+                print(file)
                 print()
 
                 rental = input('Which would you like to rent today? ')
+
                 print()
                 name = input('What name would be on this rental? ')
                 print()
@@ -23,7 +24,7 @@ def user(inv, file, customer_employee):
                 print()
 
                 rent = Rental(name, [], rental_length, rent_or_return)
-                item = inv.get_item(rental)
+                item = file.get_item(rental)
                 rentals = rent.add_item(item)
                 print('Thanks for your business.')
                 print()
@@ -34,6 +35,7 @@ def user(inv, file, customer_employee):
 
                         print(rent)
                         return rent
+
             elif rent_or_return == 'close':
 
                 return_item = input('What would you like to return? ')
@@ -75,7 +77,6 @@ def user(inv, file, customer_employee):
 
 
 def main():
-    inv = load_inventory()
 
     file = get_inventory()
 
@@ -84,10 +85,10 @@ def main():
     customer_employee = input('Are you a customer or an employee? ')
     print()
 
-    rent = user(inv, file, customer_employee)
+    rent = user(file, customer_employee)
 
     write_to_log(rent)
-    inventory = inv.update_stock()
+    inventory = file.update_stock()
     give_inventory(inventory)
 
 

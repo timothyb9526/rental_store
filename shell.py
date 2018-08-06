@@ -16,7 +16,7 @@ def user(inv, customer_employee):
                 print()
 
                 rental = int(
-                    input('Which would you like to rent today?(0, 6) '))
+                    input('Which would you like to rent today?(0, 5) '))
                 print()
 
                 name = input('What name would be on this rental? ')

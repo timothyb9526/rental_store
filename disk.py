@@ -9,13 +9,15 @@ def load_inventory(contents, string):
 
 
 def get_inventory():
+    count = 0
     with open('inventory.txt') as file:
         contents = file.readline().split(',')
         lines = file.readlines()
     properties = []
     for l in lines:
-
+        count += 1
         p = load_inventory(contents, l)
+
         properties.append(p)
 
     return Inventory(properties)

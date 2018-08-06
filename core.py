@@ -44,6 +44,9 @@ class Inventory:
                 item.stock -= 1
                 return item
 
+    def __getitem__(self, i):
+        return self.properties[i]
+
     def update_stock(self):
 
         inventory = ''

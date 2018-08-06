@@ -11,39 +11,38 @@ def user(inv, customer_employee):
                 'Would you like to [R]ent or [C]lose a current rental? ')
             print()
             if rent_or_return == 'R':
+
                 print(inv)
                 print()
 
-                rental = input('Which would you like to rent today? ')
-
+                rental = int(
+                    input('Which would you like to rent today?(0, 6) '))
                 print()
+
                 name = input('What name would be on this rental? ')
                 print()
 
-                rental_length = input('How long will you be renting? ')
+                rental_length = input('How many months will you be renting? ')
                 print()
 
                 rent = Rental(name, [], rental_length, rent_or_return)
-                item = inv.get_item(rental)
+                item = inv[rental]
                 rentals = rent.add_item(item)
+
                 print('Thanks for your business.')
                 print()
 
-                for line in inv.properties:
-
-                    if rental.lower() in line.name.lower():
-
-                        print(rent)
-                        return rent
+                print(rent)
 
             elif rent_or_return == 'C':
 
                 return_item = input('What rental would you like to close? ')
                 print()
+
                 customer = input('What was the name? ')
                 print()
 
-                length = input('How long was the rental for? ')
+                length = input('How many months were you renting? ')
                 print()
 
                 print('Thank you for your business.')
@@ -52,7 +51,7 @@ def user(inv, customer_employee):
                 return_list = Rental(customer, [], length, rent_or_return)
                 item = inv.give_item(return_item)
                 rentals = return_list.add_item(item)
-inventory = print_inventory()
+
                 for line in inv.properties:
                     if return_item.lower() in line.name.lower():
 
@@ -82,13 +81,16 @@ def main():
 
     print('Welcome to my rental agency press "q" to quit at any time.')
     print()
+
     customer_employee = input('Are you a [C]ustomer or an [E]mployee? ')
     print()
 
     rent = user(inv, customer_employee)
 
     write_to_log(rent)
+
     inventory = inv.update_stock()
+
     give_inventory(inventory)
 
 

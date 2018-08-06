@@ -72,3 +72,11 @@ def test_rental_init():
     assert R.items == ['small cabin']
     assert R.length == '3'
     assert R.type == 'rent'
+
+
+def test_rental_str():
+
+    R = Rental('timothy', [Property('small cabin', 5, 100, 150)], '3', 'R')
+
+    assert R.__str__(
+    ) == '-----------------\nType: R\nCustomer: timothy\nDeposit: 15.0\nTotal: $336.00 for 3 months\nProperty: \nsmall cabin: $100 per month\n-----------------'

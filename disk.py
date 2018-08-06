@@ -21,6 +21,14 @@ def get_inventory():
     return Inventory(properties)
 
 
+def print_inventory():
+    with open('inventory.txt') as file:
+        contents = file.readlines()
+        for line in contents:
+
+            print(line)
+
+
 def give_inventory(inventory):
     with open('inventory.txt', 'w') as file:
         files = file.write(inventory)

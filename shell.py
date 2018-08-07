@@ -50,7 +50,7 @@ def user(inv, customer_employee):
                 print()
 
                 return_list = Rental(customer, [], length, rent_or_return)
-                item = inv.give_item(return_item)
+                item = inv.return_item(return_item)
                 rentals = return_list.add_item(item)
 
                 for line in inv.properties:

@@ -32,20 +32,19 @@ class Inventory:
         item = self.get_item(name)
         return not (item is None)
 
-    def give_item(self, name):
+    def return_item(self, name):
         for item in self.properties:
             if item.matches_name(name):
                 item.stock += 1
                 return item
 
-    def get_item(self, name):
-        for item in self.properties:
-            if item.matches_name(name):
-                item.stock -= 1
-                return item
+    def rent_item(self, index):
+        item = self.properties[index]
+        item.stock -= 1
+        return item
 
-    def __getitem__(self, i):
-        return self.properties[i]
+    def __getitem__(self, item):
+        return self.rent_item(item)
 
     def update_stock(self):
 
@@ -103,7 +102,7 @@ class Rental:
 
     def __str__(self):
 
-        return '-----------------\nType: {}\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n----------------'.format(
+        return '-----------------\nType: {}\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n-----------------'.format(
             self.type, self.name, self.replacement(), self.total(),
             self.length, ''.join('\n' + str(i) for i in self.items))
 

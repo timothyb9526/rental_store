@@ -33,6 +33,7 @@ def user(inv, customer_employee):
                 print()
 
                 print(rent)
+                return rent
 
             elif rent_or_return == 'C':
 

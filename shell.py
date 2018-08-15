@@ -1,5 +1,6 @@
 import core
 import disk
+import time
 
 
 def customer(inv, customer_employee, rent_or_return):
@@ -13,13 +14,15 @@ def customer(inv, customer_employee, rent_or_return):
         print()
         if rental > 5:
             break
-
+        time.sleep(.5)
         name = input('What name would be on this rental? ')
         print()
-
+        time.sleep(.5)
         rental_length = input('How many months will you be renting? ')
         print()
-
+        print('One moment please.......')
+        print()
+        time.sleep(1)
         rent = core.Rental(name, [], rental_length, rent_or_return)
         item = inv[rental]
         rentals = rent.add_item(item)
@@ -37,13 +40,15 @@ def return_rental(inv, rent_or_return):
 
         return_item = input('What rental would you like to close? ')
         print()
-
+        time.sleep(.5)
         customer = input('What was the name? ')
         print()
-
+        time.sleep(.5)
         length = input('How many months were you renting? ')
         print()
-
+        print('One moment please.........')
+        print()
+        time.sleep(1)
         print('Thank you for your business.')
         print()
 
@@ -69,11 +74,11 @@ def employee(customer_employee):
         print()
 
         if history == 'H':
-
+            time.sleep(1)
             disk.employee()
 
         elif history == 'I':
-
+            time.sleep(1)
             disk.print_inventory()
         break
 
@@ -88,6 +93,7 @@ def main():
     customer_employee = input('Are you a [C]ustomer or an [E]mployee? ')
     print()
     if customer_employee == 'C':
+        time.sleep(.5)
         rent_or_return = input(
             'Would you like to [R]ent or [C]lose a current rental? ')
         print()

@@ -154,6 +154,22 @@ def test_rental_return_str():
     ) == '-----------------\nType: C\nCustomer: timothy\nDeposit: 15.0\nTotal: $321.00 for 3 months\nProperty: \nsmall cabin: $100 per month\n----------------'
 
 
+def test_log_string():
+
+    R = Rental('timothy', [Property('small cabin', 5, 100, 150)], '3', 'R')
+
+    assert R.log_string(
+    ) == '\nR, timothy, 15.0, 336.0, small cabin: $100 per month, 336.0\n'
+
+
+def test_return_log():
+
+    R = Rental('timothy', [Property('small cabin', 5, 100, 150)], '3', 'C')
+
+    assert R.return_log(
+    ) == '\nC, timothy, 15.0, 321.0, small cabin: $100 per month, 321.0\n'
+
+
 def test_rental_str():
 
     R = Rental('timothy', [Property('small cabin', 5, 100, 150)], '3', 'R')

@@ -6,11 +6,7 @@ class Property:
         self.rent = rent
         self.replacement = replacement
 
-    def rent(self):
-        return self.rent
-
     def matches_name(self, name):
-
         return self.name.lower().startswith(name.lower())
 
     def history_string(self):
@@ -27,11 +23,6 @@ class Inventory:
 
         self.properties = properties
 
-    def in_stock(self, name):
-
-        item = self.get_item(name)
-        return not (item is None)
-
     def return_item(self, name):
         for item in self.properties:
             if item.matches_name(name):
@@ -47,7 +38,6 @@ class Inventory:
         return self.rent_item(item)
 
     def update_stock(self):
-
         inventory = ''
         for property in self.properties:
             inventory += '\n{}'.format(property.history_string())
@@ -80,11 +70,26 @@ class Rental:
             return (price * int(self.length))
 
     def return_string(self):
-
         return '-----------------\nType: {}\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n----------------'.format(
             self.type, self.name, self.replacement(),
             self.total_minus_deposit(), self.length, ''.join(
                 '\n' + str(i) for i in self.items))
+
+    def return_log(self):
+        base_string = '\n{}, {}, {}, {}'.format(self.type, self.name,
+                                                self.replacement(),
+                                                self.total_minus_deposit())
+        end_string = ', '.join(str(i) for i in self.items)
+        return base_string + ', ' + end_string + ', ' + str(
+            self.total_minus_deposit()) + '\n'
+
+    def log_string(self):
+        base_string = '\n{}, {}, {}, {}'.format(self.type, self.name,
+                                                self.replacement(),
+                                                self.total())
+        end_string = ', '.join(str(i) for i in self.items)
+        return base_string + ', ' + end_string + ', ' + str(
+            self.total()) + '\n'
 
     def total(self):
 
@@ -95,9 +100,7 @@ class Rental:
             return (price * int(self.length)) + self.replacement()
 
     def replacement(self):
-
         for i in self.items:
-
             return round(i.replacement * .10, 2)
 
     def __str__(self):
@@ -107,4 +110,5 @@ class Rental:
             self.length, ''.join('\n' + str(i) for i in self.items))
 
     def __repr__(self):
-        return 'Rental({},{},{})'.format(repr(self.name), repr(self.items))
+        return 'Rental({},{},{})'.format(
+            repr(self.name), repr(self.items), repr(self.type))

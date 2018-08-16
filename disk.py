@@ -37,8 +37,17 @@ def give_inventory(inventory):
 
 
 def write_to_log(rent):
-    time = datetime.now()
-    text = '\n{},\n{}'.format(time, rent.__str__())
+    time = str(datetime.now())
+    text = time + ', ' + rent.log_string()
+
+    with open('history.txt', 'a') as file:
+        file.write(text)
+
+
+def write_to_log_return(return_list):
+    time = str(datetime.now())
+    text = time + ', ' + return_list.return_log()
+
     with open('history.txt', 'a') as file:
         file.write(text)
 

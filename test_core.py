@@ -82,7 +82,7 @@ def test_rent_item():
 
     inv = Inventory(properties)
 
-    item = inv.rent_item(0)
+    item = inv.rent_item('s')
     assert item.stock == 4
     assert item.name == 'small cabin'
 
@@ -105,7 +105,7 @@ def test_get_item():
 
     inv = Inventory(properties)
 
-    assert inv.__getitem__(0) == inv.rent_item(0)
+    assert inv.__getitem__('s') == inv.rent_item('s')
 
 
 def test_inventory_str():
@@ -159,7 +159,7 @@ def test_log_string():
     R = Rental('timothy', [Property('small cabin', 5, 100, 150)], '3', 'R')
 
     assert R.log_string(
-    ) == '\nR, timothy, 15.0, 336.0, small cabin: $100 per month, 336.0\n'
+    ) == 'R, timothy, 15.0, 336.0, small cabin: $100 per month, 336.0\n'
 
 
 def test_return_log():
@@ -167,7 +167,7 @@ def test_return_log():
     R = Rental('timothy', [Property('small cabin', 5, 100, 150)], '3', 'C')
 
     assert R.return_log(
-    ) == '\nC, timothy, 15.0, 321.0, small cabin: $100 per month, 321.0\n'
+    ) == 'C, timothy, 15.0, 321.0, small cabin: $100 per month, 321.0\n'
 
 
 def test_rental_str():

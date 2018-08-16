@@ -25,10 +25,9 @@ def get_inventory():
 
 def print_inventory():
     with open('inventory.txt') as file:
-        contents = file.readlines()
-        for line in contents:
+        contents = file.read()
 
-            print(line)
+        return contents
 
 
 def give_inventory(inventory):
@@ -54,8 +53,7 @@ def write_to_log_return(return_list):
 def employee():
     with open('history.txt') as file:
         files = file.read()
-
-    print(files)
+    return files
 
 
 def is_number(s):

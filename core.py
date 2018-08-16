@@ -29,10 +29,11 @@ class Inventory:
                 item.stock += 1
                 return item
 
-    def rent_item(self, index):
-        item = self.properties[index]
-        item.stock -= 1
-        return item
+    def rent_item(self, name):
+        for item in self.properties:
+            if item.matches_name(name):
+                item.stock -= 1
+                return item
 
     def __getitem__(self, item):
         return self.rent_item(item)

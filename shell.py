@@ -9,10 +9,11 @@ def customer(inv, customer_employee, rent_or_return):
 
         print(inv)
         print()
-        rental = int(input('Which would you like to rent today?(0, 5) '))
+        rental = input(
+            'Which would you like to rent today?(First letter of rental) ')
         print()
         time.sleep(.5)
-        if rental <= 5:
+        while True:
             name = input('What name would be on this rental? ')
             print()
             time.sleep(.5)
@@ -33,6 +34,7 @@ def customer(inv, customer_employee, rent_or_return):
                 return rent
             else:
                 print('Please enter a number.')
+                print()
         else:
             print('Invalid Response')
 
@@ -42,31 +44,33 @@ def return_rental(inv, rent_or_return):
     customer = input('What\'s your name? ')
     print()
     time.sleep(.5)
-    return_item = input('okay ' + customer +
-                        ' what rental would you like to close? ')
-    print()
-    time.sleep(.5)
     while True:
-        length = input('How many months were you renting? ')
+        return_item = input(
+            'okay ' + customer +
+            ' what rental would you like to close?(First letter of rental) ')
         print()
-        if length.isdigit() == True:
-
-            print('One moment please.........')
+        time.sleep(.5)
+        while True:
+            length = input('How many months were you renting? ')
             print()
-            time.sleep(1)
-            print('Thank you for your business.')
-            print()
+            if length.isdigit() == True:
 
-            return_list = core.Rental(customer, [], length, rent_or_return)
-            item = inv.return_item(return_item)
-            rentals = return_list.add_item(item)
+                print('One moment please.........')
+                print()
+                time.sleep(1)
+                print('Thank you for your business.')
+                print()
 
-            print(return_list.return_string())
-            return return_list
+                return_list = core.Rental(customer, [], length, rent_or_return)
+                item = inv.return_item(return_item)
+                rentals = return_list.add_item(item)
 
-        else:
-            print('Please enter a number.')
-            print()
+                print(return_list.return_string())
+                return return_list
+
+            else:
+                print('Please enter a number.')
+                print()
 
 
 def employee(customer_employee):
@@ -79,13 +83,13 @@ def employee(customer_employee):
 
         if history == 'H':
             time.sleep(1)
-            disk.employee()
+            print(disk.employee())
             print('Total: {}'.format(disk.revenue()))
             break
 
         elif history == 'I':
             time.sleep(1)
-            disk.print_inventory()
+            print(disk.print_inventory())
             break
         else:
             print('Please select History or Inventory.')
@@ -103,18 +107,19 @@ def main():
         if customer_employee == 'C':
             time.sleep(.5)
             while True:
-
                 rent_or_return = input(
                     'Would you like to [R]ent or [C]lose a current rental? ')
                 print()
                 if rent_or_return == 'R':
                     rent = customer(inv, customer_employee, rent_or_return)
                     disk.write_to_log(rent)
-
+                    break
                 elif rent_or_return == 'C':
                     return_list = return_rental(inv, rent_or_return)
                     disk.write_to_log_return(return_list)
-                break
+                    break
+                elif rent_or_return == 'Q':
+                    break
             break
         elif customer_employee == 'E':
             employee(customer_employee)

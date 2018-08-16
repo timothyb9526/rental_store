@@ -40,7 +40,7 @@ def customer(inv, customer_employee, rent_or_return):
             print('Invalid Response')
 
 
-def rent_or_return(inv, rent_or_return):
+def return_rental(inv, rent_or_return):
 
     customer = input('What\'s your name? ')
     print()
@@ -82,14 +82,15 @@ def employee(customer_employee):
         )
         print()
 
-        if history == 'H'.lower() or 'H':
+        if history == 'h' or history == 'H':
             time.sleep(1)
             print(disk.employee())
             print('Total: {}'.format(disk.revenue()))
             break
 
-        elif history == 'I'.lower() or 'I':
+        elif history == 'i' or history == 'I':
             time.sleep(1)
+            print('name, stock, price, replacement cost')
             print(disk.print_inventory())
             break
         else:
@@ -105,24 +106,24 @@ def main():
     while True:
         customer_employee = input('Are you a [C]ustomer or an [E]mployee? ')
         print()
-        if customer_employee == 'C'.lower() or 'C':
+        if customer_employee == 'c' or customer_employee == 'C':
             time.sleep(.5)
             while True:
                 rent_or_return = input(
                     'Would you like to [R]ent or [C]lose a current rental? ')
                 print()
-                if rent_or_return == 'R'.lower() or 'R':
+                if rent_or_return == 'r' or rent_or_return == 'R':
                     rent = customer(inv, customer_employee, rent_or_return)
                     disk.write_to_log(rent)
                     break
-                elif rent_or_return == 'C'.lower() or 'C':
+                elif rent_or_return == 'c' or rent_or_return == 'C':
                     return_list = return_rental(inv, rent_or_return)
                     disk.write_to_log_return(return_list)
                     break
-                elif rent_or_return == 'Q'.lower() or 'Q':
+                elif rent_or_return == 'q' or rent_or_return == 'Q':
                     break
             break
-        elif customer_employee == 'E'.lower() or 'E':
+        elif customer_employee == 'e' or customer_employee == 'E':
             employee(customer_employee)
 
             break

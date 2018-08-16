@@ -13,10 +13,11 @@ def customer(inv, customer_employee, rent_or_return):
             'Which would you like to rent today?(First letter of rental) ')
         print()
         time.sleep(.5)
+
+        name = input('What name would be on this rental? ')
+        print()
+        time.sleep(.5)
         while True:
-            name = input('What name would be on this rental? ')
-            print()
-            time.sleep(.5)
             rental_length = input('How many months will you be renting? ')
             print()
             if rental_length.isdigit() == True:
@@ -39,7 +40,7 @@ def customer(inv, customer_employee, rent_or_return):
             print('Invalid Response')
 
 
-def return_rental(inv, rent_or_return):
+def rent_or_return(inv, rent_or_return):
 
     customer = input('What\'s your name? ')
     print()
@@ -81,13 +82,13 @@ def employee(customer_employee):
         )
         print()
 
-        if history == 'H':
+        if history == 'H'.lower() or 'H':
             time.sleep(1)
             print(disk.employee())
             print('Total: {}'.format(disk.revenue()))
             break
 
-        elif history == 'I':
+        elif history == 'I'.lower() or 'I':
             time.sleep(1)
             print(disk.print_inventory())
             break
@@ -104,24 +105,24 @@ def main():
     while True:
         customer_employee = input('Are you a [C]ustomer or an [E]mployee? ')
         print()
-        if customer_employee == 'C':
+        if customer_employee == 'C'.lower() or 'C':
             time.sleep(.5)
             while True:
                 rent_or_return = input(
                     'Would you like to [R]ent or [C]lose a current rental? ')
                 print()
-                if rent_or_return == 'R':
+                if rent_or_return == 'R'.lower() or 'R':
                     rent = customer(inv, customer_employee, rent_or_return)
                     disk.write_to_log(rent)
                     break
-                elif rent_or_return == 'C':
+                elif rent_or_return == 'C'.lower() or 'C':
                     return_list = return_rental(inv, rent_or_return)
                     disk.write_to_log_return(return_list)
                     break
-                elif rent_or_return == 'Q':
+                elif rent_or_return == 'Q'.lower() or 'Q':
                     break
             break
-        elif customer_employee == 'E':
+        elif customer_employee == 'E'.lower() or 'E':
             employee(customer_employee)
 
             break

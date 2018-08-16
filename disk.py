@@ -39,7 +39,6 @@ def give_inventory(inventory):
 def write_to_log(rent):
     time = str(datetime.now())
     text = time + ', ' + rent.log_string()
-
     with open('history.txt', 'a') as file:
         file.write(text)
 
@@ -57,3 +56,20 @@ def employee():
         files = file.read()
 
     print(files)
+
+
+def is_number(s):
+    return s.count('.') < 2 and s.replace('.', '').isnumeric()
+
+
+def revenue():
+    sales = []
+    with open('history.txt') as file:
+        lines = file.readlines()
+
+    for line in lines:
+        pieces = line.strip().split(',')
+        number = pieces[-1].strip()
+        if is_number(number):
+            sales.append(float(number))
+    return sum(sales)

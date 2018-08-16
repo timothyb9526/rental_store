@@ -18,19 +18,21 @@ def customer(inv, customer_employee, rent_or_return):
             time.sleep(.5)
             rental_length = input('How many months will you be renting? ')
             print()
-            print('One moment please.......')
-            print()
-            time.sleep(1)
-            rent = core.Rental(name, [], rental_length, rent_or_return)
-            item = inv[rental]
-            rentals = rent.add_item(item)
+            if rental_length.isdigit() == True:
+                print('One moment please.......')
+                print()
+                time.sleep(1)
+                rent = core.Rental(name, [], rental_length, rent_or_return)
+                item = inv[rental]
+                rentals = rent.add_item(item)
 
-            print('Thanks for your business.')
-            print()
+                print('Thanks for your business.')
+                print()
 
-            print(rent)
-            return rent
-
+                print(rent)
+                return rent
+            else:
+                print('Please enter a number.')
         else:
             print('Invalid Response')
 
@@ -45,9 +47,9 @@ def return_rental(inv, rent_or_return):
     print()
     time.sleep(.5)
     while True:
-        length = int(input('How many months were you renting? '))
+        length = input('How many months were you renting? ')
         print()
-        if length in range(1, 13):
+        if length.isdigit() == True:
 
             print('One moment please.........')
             print()
@@ -63,7 +65,7 @@ def return_rental(inv, rent_or_return):
             return return_list
 
         else:
-            print('You can only rent 1 year in advance.')
+            print('Please enter a number.')
             print()
 
 
@@ -78,6 +80,7 @@ def employee(customer_employee):
         if history == 'H':
             time.sleep(1)
             disk.employee()
+            print('Total: {}'.format(disk.revenue()))
             break
 
         elif history == 'I':
@@ -92,7 +95,6 @@ def employee(customer_employee):
 def main():
 
     inv = disk.get_inventory()
-
     print('Welcome to my rental agency press "q" to quit at any time.')
     print()
     while True:
@@ -116,6 +118,7 @@ def main():
             break
         elif customer_employee == 'E':
             employee(customer_employee)
+
             break
 
     inventory = inv.update_stock()

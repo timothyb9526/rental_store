@@ -69,6 +69,14 @@ class Rental:
 
             return (price * int(self.length))
 
+    # def revenue(self):
+    #     total_revenue = []
+    #     for i in self.items:
+    #         cost = i.rent
+    #         total_revenue.append(cost)
+    #         total = sum(total_revenue)
+    #     return total
+
     def return_string(self):
         return '-----------------\nType: {}\nCustomer: {}\nDeposit: {}\nTotal: ${:.2f} for {} months\nProperty: {}\n----------------'.format(
             self.type, self.name, self.replacement(),
@@ -76,17 +84,16 @@ class Rental:
                 '\n' + str(i) for i in self.items))
 
     def return_log(self):
-        base_string = '\n{}, {}, {}, {}'.format(self.type, self.name,
-                                                self.replacement(),
-                                                self.total_minus_deposit())
+        base_string = '{}, {}, {}, {}'.format(self.type, self.name,
+                                              self.replacement(),
+                                              self.total_minus_deposit())
         end_string = ', '.join(str(i) for i in self.items)
         return base_string + ', ' + end_string + ', ' + str(
             self.total_minus_deposit()) + '\n'
 
     def log_string(self):
-        base_string = '\n{}, {}, {}, {}'.format(self.type, self.name,
-                                                self.replacement(),
-                                                self.total())
+        base_string = '{}, {}, {}, {}'.format(self.type, self.name,
+                                              self.replacement(), self.total())
         end_string = ', '.join(str(i) for i in self.items)
         return base_string + ', ' + end_string + ', ' + str(
             self.total()) + '\n'
